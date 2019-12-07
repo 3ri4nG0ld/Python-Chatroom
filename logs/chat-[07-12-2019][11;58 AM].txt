@@ -1,0 +1,4 @@
+* [11:57 AM] | brian --> [192.168.1.222:59234] Acaba de conectarse.
+  [11:57 AM] | brian: hola
+  [11:57 AM] | brian: buanas tardes gente
+  [11:58 AM] | brian: /clear

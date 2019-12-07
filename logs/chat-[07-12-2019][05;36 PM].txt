@@ -1,0 +1,14 @@
+* [05:28 PM] | brian --> [127.0.0.1:57240] Acaba de conectarse.
+* [05:28 PM] | Minecraft(Mods) --> [127.0.0.1:57266] Acaba de conectarse.
+  [05:29 PM] | brian: hola
+  [05:29 PM] | brian: probando
+  [05:29 PM] | brian: el
+  [05:29 PM] | brian: s
+  [05:29 PM] | brian: ss
+  [05:29 PM] | brian: s
+  [05:29 PM] | brian: el server solo recibe 1 mensaje por segundo
+  [05:30 PM] | brian: asi que si haces spam va ha hacer una locuraa de lentoç
+  [05:33 PM] | brian: hola
+* [05:33 PM] | Minecraft(Mods) --> [127.0.0.1:57558] Acaba de conectarse.
+* [05:35 PM] | Minecraft(Mods) --> [127.0.0.1:57686] Acaba de conectarse.
+  [05:36 PM] | Minecraft(Mods): 

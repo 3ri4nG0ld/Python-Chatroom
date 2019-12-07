@@ -1,0 +1,3 @@
+ [93m*[0m [01:10 PM] | brian --> [192.168.1.222:61683] Acaba de conectarse.
+  [01:10 PM] | brian: hola
+* [01:10 PM] | brian --> [192.168.1.222:61683] Se ha desconectado.
