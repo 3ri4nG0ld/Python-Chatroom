@@ -2,7 +2,7 @@ import socket,threading,time,sys,os
 from pathlib import Path
 
 #-------Variables Globales--------
-ip="127.0.0.1"
+ip="192.168.1.222"
 port=8362
 admin="brian"
 size_packages=16192
@@ -142,7 +142,7 @@ def recibir_mensaje_clientes(client,nick,client_ip):
 			print(logout)
 			limpiar_chat()
 			break
-		except ConnectionAbortedError:
+		except:
 			print (f"* {hora_mensaje()}{nick} --> {client_to_ip(client_ip)} se ha forzado la desconexion por un error inesperado ...")
 			limpiar_chat()
 			break
@@ -161,26 +161,45 @@ def leer_mensajes_de_archivo():
 	datos=archivo.read()
 	archivo.close()
 	return datos
+def comprobar_igualdad_archivos():
+	archivo_Temp=open("temp.txt","r")
+	datos_Temp=archivo_Temp.read()
+	archivo_Temp.close()
+	datos_chat=leer_mensajes_de_archivo()
+	if (datos_chat == datos_Temp):
+		return False
+	else:
+		return True
+def escribir_temp(chat):
+	archivo_Temp=open("temp.txt","w")
+	datos_Temp=archivo_Temp.write(chat)
+	archivo_Temp.close()
+
 
 #Esta funcion envia el archivo chat.txt a los clientes cada 1 segundo
 def enviar_chat(client):
 	while True:
-		try:
-			chat=leer_mensajes_de_archivo()
+		chat=leer_mensajes_de_archivo()
+		if (comprobar_igualdad_archivos()):
+			escribir_temp(chat)
 			chat=cifrar_mensaje(chat)
-			client.send(chat)
-		except ConnectionResetError:
-			break
-		except ConnectionAbortedError:
-			break
-		time.sleep(1)
+			try:
+				client.send(chat)
+			except:
+				break	
+		else:
+			continue
 
 
 def limpiar_chat():
-	guardar_chat_en_logs()
+	#guardar_chat_en_logs()
 	archivo=open("chat.txt","w")
 	archivo.write("")
 	archivo.close()
+
+	File=open("temp.txt","w")
+	File.write("")
+	File.close()
 
 #------------------------MAIN------------------------------
 

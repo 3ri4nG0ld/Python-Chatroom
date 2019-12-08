@@ -1,4 +1,0 @@
-* [02:32 PM] | brian --> [127.0.0.1:65075] Acaba de conectarse.
-  [02:32 PM] | brian: hola
-* [02:33 PM] | anonimo --> [127.0.0.1:65106] Acaba de conectarse.
-  [02:33 PM] | anonimo: hola

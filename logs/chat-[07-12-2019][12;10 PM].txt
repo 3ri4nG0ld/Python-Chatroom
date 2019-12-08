@@ -1,3 +1,0 @@
- * [12:10 PM] | brian --> [192.168.1.222:59659] Acaba de conectarse.
-  [12:10 PM] | brian: hola
-  [12:10 PM] | brian: /clear

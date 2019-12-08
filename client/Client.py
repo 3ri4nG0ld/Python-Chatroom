@@ -1,8 +1,8 @@
 import socket,threading,time,os,sys,platform
 
 #~--------------Variables Globales---------------
-ip="18.188.14.65"
-port=15370
+ip="192.168.1.222"#input("Server IP: ")
+port=8362#int(input("Server Port: "))
 size_packages=65536
 #------------------------------------------------
 
@@ -72,9 +72,9 @@ def recibir_mensajes(client):
 		
 		print(mensaje)
 
-		sys.stdout.write("""----------------------------------------------------------------------------------------------
+		sys.stdout.write("""------------------------------------------------------------------------------------------
 > """)
-		time.sleep(1)
+
 
 def tratar_mensaje(mensaje,client):
 	if ("/exit" in mensaje):
