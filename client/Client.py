@@ -51,6 +51,16 @@ def descifrar_mensaje(mensaje,client):
 	mensaje=mensaje[::-1]
 	return mensaje
 
+def puntero_texto():
+	if "Windows" in platform.platform():
+		print(f"""------------------------------------------------------------------------------------------""")
+		os.system(f"echo | set /p=[[96m[1m{nick.decode()}[0m]: ")
+	else:
+		print(f"""------------------------------------------------------------------------------------------""")
+		os.system(f"printf '[[96m[1m{nick.decode()}[0m]: '")
+
+
+
 #detecta el sistema operativo para limpia la pantalla	
 def limpiar_pantalla():
 	if "Windows" in platform.platform():
@@ -71,10 +81,7 @@ def recibir_mensajes(client):
 		limpiar_pantalla()
 		
 		print(mensaje)
-
-		sys.stdout.write("""------------------------------------------------------------------------------------------
-> """)
-
+		puntero_texto()
 
 def tratar_mensaje(mensaje,client):
 	if ("/exit" in mensaje):
@@ -88,14 +95,15 @@ def tratar_mensaje(mensaje,client):
 
 def enviar_mensaje(client):
 	while True:
-		mensaje=input("> ")
+		mensaje=input("")
 		tratar_mensaje(mensaje,client)
 		mensaje=cifrar_mensaje(mensaje)
 		try:
 			client.send(mensaje)
 		except OSError:
 			limpiar_pantalla()
-			print("El servidor a finalizado la conexion... Pulse enter para salir")
+			os.system("echo [41mEl servidor a finalizado la conexion...[0m Pulse enter para salir")
+			#print("El servidor a finalizado la conexion... Pulse enter para salir")
 			input("")
 			break
 try:
@@ -106,12 +114,12 @@ except ConnectionRefusedError:
 	input("pulse para salir del programa...")
 	quit()
 
+enviar=threading.Thread(name="enviar_msg", target=enviar_mensaje,args=(client, ))
+enviar.start()
 
 recibir=threading.Thread(name="recibir_msg", target=recibir_mensajes,args=(client, ))
 recibir.start()
 
-enviar=threading.Thread(name="enviar_msg", target=enviar_mensaje,args=(client, ))
-enviar.start()
 
 
 

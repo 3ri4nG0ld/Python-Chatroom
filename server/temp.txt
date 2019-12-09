@@ -1,0 +1,5 @@
+* [12:39 AM] | brian --> [192.168.1.222:65110] Acaba de conectarse.
+  [12:41 AM] | brian: hola
+  [12:44 AM] | brian: buenos dias
+  [12:48 AM] | brian: prueba
+  [12:48 AM] | brian: test

@@ -1,5 +1,4 @@
 import socket,threading,time,sys,os
-from pathlib import Path
 
 #-------Variables Globales--------
 ip="192.168.1.222"
@@ -135,12 +134,10 @@ def recibir_mensaje_clientes(client,nick,client_ip):
 			escribir_mensaje_en_archivo(mensaje,nick)
 			tratar_mensajes(mensaje,nick,client_ip)
 			print(mensaje)
-			time.sleep(1)
 		except ConnectionResetError:
 			logout=f"* {hora_mensaje()}{nick} --> {client_to_ip(client_ip)} Se ha desconectado."
 			escribir_mensaje_en_archivo(logout,nick)
 			print(logout)
-			limpiar_chat()
 			break
 		except:
 			print (f"* {hora_mensaje()}{nick} --> {client_to_ip(client_ip)} se ha forzado la desconexion por un error inesperado ...")
@@ -192,7 +189,7 @@ def enviar_chat(client):
 
 
 def limpiar_chat():
-	#guardar_chat_en_logs()
+	guardar_chat_en_logs()
 	archivo=open("chat.txt","w")
 	archivo.write("")
 	archivo.close()
@@ -200,6 +197,8 @@ def limpiar_chat():
 	File=open("temp.txt","w")
 	File.write("")
 	File.close()
+	print(f"  {hora_mensaje()} SERVER: [Se acaba de eliminar el chat...]")
+
 
 #------------------------MAIN------------------------------
 
@@ -214,5 +213,7 @@ server.listen(50)
 refresh_chat=threading.Thread(name="refresh_chat", target=temporizador_chat)
 refresh_chat.start()
 
+
+os.system("cls")
 os.system("echo [96mEl server Esta escuchando...[0m")
 conectar_clientes(server)

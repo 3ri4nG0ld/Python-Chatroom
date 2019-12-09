@@ -1,0 +1,9 @@
+* [12:25 AM] | pedro --> [192.168.1.222:64653] Acaba de conectarse.
+  [12:25 AM] | pedro: hola chicos
+  [12:25 AM] | pedro: /clear
+* [12:26 AM] | pepe --> [192.168.1.222:64691] Acaba de conectarse.
+* [12:28 AM] | brian --> [192.168.1.177:55346] Acaba de conectarse.
+  [12:29 AM] | brian: hola
+  [12:33 AM] | brian: 
+  [12:33 AM] | brian: 
+  [12:33 AM] | brian: 
